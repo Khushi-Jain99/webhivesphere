@@ -1,0 +1,26 @@
+<section id="home" class="hero" appReveal>
+  <div class="hero-content" [@heroEnter]>
+    <p class="eyebrow">Modern Digital Product Studio</p>
+    <h1>Designing premium web interfaces that are clear, fast, and user-centered.</h1>
+    <p class="subheading">
+      WebHiveSphere builds clean and scalable frontend experiences for modern brands with a strong focus on usability, performance, and polish.
+    </p>
+
+    <div class="actions">
+      <button type="button" class="primary" (click)="primaryAction.emit('projects')">View Projects</button>
+      <button type="button" class="secondary" (click)="secondaryAction.emit('contact')">Contact Us</button>
+    </div>
+  </div>
+
+  <aside class="hero-stats" [@heroEnter]>
+    <h2>Studio Snapshot</h2>
+    <div class="stats-grid">
+      @for (stat of stats; track stat.label) {
+        <article>
+          <strong>{{ stat.value }}</strong>
+          <p>{{ stat.label }}</p>
+        </article>
+      }
+    </div>
+  </aside>
+</section>

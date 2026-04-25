@@ -1,0 +1,54 @@
+<section id="contact" class="contact" appReveal>
+  <div class="contact-inner">
+    <div class="contact-copy">
+      <app-section-heading
+        eyebrow="Contact"
+        title="Let’s build something exceptional together"
+        description="Send a short message and we will follow up with a structured plan, timeline, and next steps."
+      ></app-section-heading>
+    </div>
+
+    <div class="contact-grid">
+      <form class="contact-form" (submit)="submit($event)">
+        <label>
+          <span>Name</span>
+          <input [value]="name" (input)="name = normalize(($any($event.target)).value)" type="text" placeholder="Your full name" />
+        </label>
+        @if (touched.name && !isNameValid()) {
+          <small class="feedback">Please enter your name.</small>
+        }
+
+        <label>
+          <span>Email</span>
+          <input [value]="email" (input)="email = normalize(($any($event.target)).value)" type="email" placeholder="name@company.com" />
+        </label>
+        @if (touched.email && !isEmailValid()) {
+          <small class="feedback">Please enter a valid email.</small>
+        }
+
+        <label>
+          <span>Message</span>
+          <textarea [value]="message" (input)="message = normalize(($any($event.target)).value)" rows="6" placeholder="Tell us about your project goals"></textarea>
+        </label>
+        @if (touched.message && !isMessageValid()) {
+          <small class="feedback">Please add at least 20 characters.</small>
+        }
+
+        <button type="submit" [disabled]="!isFormValid()">Send Message</button>
+
+        @if (sentMessage) {
+          <p class="success">{{ sentMessage }}</p>
+        }
+      </form>
+
+      <aside class="contact-side">
+        <h3>Other ways to connect</h3>
+        <div class="social-list">
+          @for (social of socials; track social.label) {
+            <a [href]="social.href" target="_blank" rel="noreferrer">{{ social.label }}</a>
+          }
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,53 @@
+:host {
+  display: block;
+}
+
+.about {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+}
+
+.about-inner {
+  display: grid;
+  gap: 1.1rem;
+}
+
+.about-copy {
+  max-width: 52rem;
+}
+
+.about-grid {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.about-grid article {
+  border: 1px solid var(--line-soft);
+  border-radius: 0.85rem;
+  background: var(--panel-bg);
+  padding: 1rem;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.about-grid article:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 14px 32px rgba(2, 8, 23, 0.34);
+}
+
+.about-grid h3 {
+  margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.08rem;
+}
+
+.about-grid p {
+  margin: 0.35rem 0 0;
+  color: var(--text-secondary);
+  line-height: 1.72;
+}
+
+@media (min-width: 900px) {
+  .about-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

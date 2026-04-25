@@ -1,0 +1,158 @@
+:host {
+  display: block;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 60;
+  border-bottom: 1px solid var(--line-soft);
+  background: rgba(15, 23, 42, 0.92);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.navbar-inner {
+  width: min(1100px, calc(100% - 2rem));
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  min-height: 4.1rem;
+}
+
+.brand {
+  border: 0;
+  background: transparent;
+  color: var(--text-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0;
+  cursor: pointer;
+}
+
+.brand-dot {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 999px;
+  background: var(--primary);
+}
+
+.brand-text {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+}
+
+.desktop-nav,
+.desktop-social {
+  display: none;
+}
+
+.desktop-nav {
+  gap: 0.25rem;
+}
+
+.desktop-nav a {
+  color: var(--text-secondary);
+  padding: 0.45rem 0.7rem;
+  border-radius: 0.5rem;
+  transition: color 180ms ease, background-color 180ms ease;
+}
+
+.desktop-nav a:hover,
+.desktop-nav a.is-active {
+  color: var(--text-primary);
+  background: rgba(99, 102, 241, 0.14);
+}
+
+.desktop-social {
+  margin-left: auto;
+  gap: 0.4rem;
+}
+
+.desktop-social a,
+.mobile-social a {
+  border: 1px solid var(--line-soft);
+  color: var(--text-secondary);
+  padding: 0.32rem 0.52rem;
+  border-radius: 0.45rem;
+  font-size: 0.72rem;
+  transition: border-color 180ms ease, color 180ms ease, box-shadow 180ms ease;
+}
+
+.desktop-social a:hover,
+.mobile-social a:hover {
+  border-color: var(--accent);
+  color: var(--text-primary);
+  box-shadow: 0 6px 16px rgba(20, 184, 166, 0.2);
+}
+
+.mobile-toggle {
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--line-soft);
+  background: transparent;
+  border-radius: 0.45rem;
+  display: grid;
+  place-content: center;
+  gap: 0.16rem;
+}
+
+.mobile-toggle span {
+  width: 0.92rem;
+  height: 2px;
+  background: var(--text-primary);
+}
+
+.mobile-nav {
+  width: min(1100px, calc(100% - 2rem));
+  margin: 0 auto 0.75rem;
+  border: 1px solid var(--line-soft);
+  background: var(--bg-alt);
+  border-radius: 0.75rem;
+  padding: 0.55rem;
+  display: grid;
+  gap: 0.32rem;
+}
+
+.mobile-nav > a {
+  color: var(--text-secondary);
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
+  padding: 0.52rem 0.6rem;
+}
+
+.mobile-nav > a:hover,
+.mobile-nav > a.is-active {
+  color: var(--text-primary);
+  border-color: rgba(99, 102, 241, 0.5);
+  background: rgba(99, 102, 241, 0.1);
+}
+
+.mobile-social {
+  margin-top: 0.35rem;
+  border-top: 1px solid var(--line-soft);
+  padding-top: 0.45rem;
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 980px) {
+  .mobile-toggle,
+  .mobile-nav {
+    display: none;
+  }
+
+  .desktop-nav,
+  .desktop-social {
+    display: inline-flex;
+    align-items: center;
+  }
+}

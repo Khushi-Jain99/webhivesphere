@@ -1,0 +1,32 @@
+<section id="skills" class="skills" appReveal>
+  <div class="skills-inner">
+    <app-section-heading
+      eyebrow="Skills"
+      title="Capabilities backed by practical execution"
+      description="A concise view of our core strengths across design, development, and performance optimization."
+    ></app-section-heading>
+
+    <div class="skills-grid">
+      @for (skill of skills; track skill.name) {
+        <article class="skill-card" appReveal>
+          <div class="skill-row">
+            <h3>{{ skill.name }}</h3>
+            <span>{{ skill.level }}%</span>
+          </div>
+
+          <p>{{ skill.summary }}</p>
+
+          <div class="meter">
+            <div class="meter-fill" [style.width.%]="skill.level"></div>
+          </div>
+
+          <div class="skill-chips">
+            @for (chip of skill.chips; track chip) {
+              <span>{{ chip }}</span>
+            }
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

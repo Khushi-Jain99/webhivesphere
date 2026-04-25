@@ -1,0 +1,62 @@
+:host {
+  display: block;
+}
+
+.backdrop {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: #0f172a;
+}
+
+.grid-layer {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(148, 163, 184, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.12) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.node {
+  position: absolute;
+  border: 1px solid rgba(148, 163, 184, 0.26);
+  border-radius: 999px;
+  animation: float 12s ease-in-out infinite;
+}
+
+.node-one {
+  width: 300px;
+  height: 300px;
+  top: -120px;
+  right: -110px;
+  border-color: rgba(99, 102, 241, 0.28);
+}
+
+.node-two {
+  width: 220px;
+  height: 220px;
+  left: -70px;
+  bottom: 14%;
+  border-color: rgba(20, 184, 166, 0.24);
+  animation-delay: -2.5s;
+}
+
+.node-three {
+  width: 170px;
+  height: 170px;
+  right: 24%;
+  bottom: -45px;
+  border-color: rgba(245, 158, 11, 0.22);
+  animation-delay: -5s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}

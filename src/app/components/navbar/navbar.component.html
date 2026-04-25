@@ -1,0 +1,37 @@
+<header class="navbar">
+  <div class="navbar-inner">
+    <button type="button" class="brand" (click)="activeTarget = 'home'; navigate.emit('home')" aria-label="Go to home section">
+      <span class="brand-dot" aria-hidden="true"></span>
+      <span class="brand-text">WebHiveSphere</span>
+    </button>
+
+    <nav class="desktop-nav" aria-label="Primary">
+      @for (link of links; track link.target) {
+        <a href="#{{ link.target }}" [class.is-active]="activeTarget === link.target" (click)="onNavigate(link.target, $event)">{{ link.label }}</a>
+      }
+    </nav>
+
+    <div class="desktop-social" aria-label="Social links">
+      @for (social of socialLinks; track social.label) {
+        <a [href]="social.href" target="_blank" rel="noreferrer">{{ social.label }}</a>
+      }
+    </div>
+
+    <button type="button" class="mobile-toggle" (click)="menuOpen = !menuOpen" [attr.aria-expanded]="menuOpen" aria-label="Toggle navigation menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  @if (menuOpen) {
+    <nav class="mobile-nav" aria-label="Mobile navigation">
+      @for (link of links; track link.target) {
+        <a href="#{{ link.target }}" [class.is-active]="activeTarget === link.target" (click)="onNavigate(link.target, $event)">{{ link.label }}</a>
+      }
+      <div class="mobile-social">
+        @for (social of socialLinks; track social.label) {
+          <a [href]="social.href" target="_blank" rel="noreferrer">{{ social.label }}</a>
+        }
+      </div>
+    </nav>
+  }
+</header>

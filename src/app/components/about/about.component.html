@@ -1,0 +1,20 @@
+<section id="about" class="about" appReveal>
+  <div class="about-inner">
+    <div class="about-copy">
+      <app-section-heading
+        eyebrow="About"
+        title="A clear process for building exceptional web experiences"
+        description="We blend product strategy, design systems, and robust frontend engineering into one streamlined workflow."
+      ></app-section-heading>
+    </div>
+
+    <div class="about-grid">
+      @for (point of points; track point.title) {
+        <article>
+          <h3>{{ point.title }}</h3>
+          <p>{{ point.text }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,27 @@
+<section id="projects" class="projects" appReveal>
+  <div class="projects-inner">
+    <app-section-heading
+      eyebrow="Projects"
+      title="Selected work delivered with strategy and precision"
+      description="A curated collection of product interfaces designed for clarity, growth, and measurable impact."
+    ></app-section-heading>
+
+    <div class="projects-grid">
+      @for (project of projects; track project.name) {
+        <article class="project-card" appReveal>
+          <div class="project-meta">
+            <span>{{ project.year }}</span>
+            <span>{{ project.impact }}</span>
+          </div>
+          <h3>{{ project.name }}</h3>
+          <p>{{ project.summary }}</p>
+          <div class="project-tags">
+            @for (tag of project.tags; track tag) {
+              <span>{{ tag }}</span>
+            }
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>
