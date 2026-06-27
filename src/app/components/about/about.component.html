@@ -6,9 +6,25 @@
         title="A clear process for building exceptional web experiences"
         description="We blend product strategy, design systems, and robust frontend engineering into one streamlined workflow."
       ></app-section-heading>
+
     </div>
 
     <div class="about-grid">
+      <article>
+        <h3>Overview</h3>
+        <div class="about-intro">
+          <p>{{ introShort }}</p>
+          @if (isExpanded()) {
+            <p>{{ introFull }}</p>
+            <p><strong>My Journey:</strong> {{ journey }}</p>
+            <p><strong>Skills Summary:</strong> {{ skillsSummary }}</p>
+            <p><strong>Goals:</strong> {{ goals }}</p>
+          }
+          <button type="button" class="about-toggle" (click)="toggleExpanded()">
+            {{ isExpanded() ? 'Show Less' : 'Read More' }}
+          </button>
+        </div>
+      </article>
       @for (point of points; track point.title) {
         <article>
           <h3>{{ point.title }}</h3>
